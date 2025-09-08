@@ -3,7 +3,9 @@
 This repository contains a **ROS 2 Humble workspace** with a **differential drive robot simulated in Gazebo**, designed for autonomous exploration, mapping, and navigation.
 
 The main goal is to **enable the robot to understand its environment**, build a **map with SLAM Toolbox**, **store it for future sessions**, and later **localize itself with AMCL** within that map. Once localized, the robot can **plan trajectories with Nav2** and **avoid obstacles in real time**, combining global path planning with local controllers.
-<img width="1848" height="1055" alt="image" src="https://github.com/user-attachments/assets/f892a138-1e61-4261-ba9a-d30462736039" />
+
+![Uploading image.png…]()
+
 
 This project integrates:
 
