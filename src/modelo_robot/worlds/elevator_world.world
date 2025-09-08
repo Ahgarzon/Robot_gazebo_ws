@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="default">
+
+    <!-- 1) Suelo plano estándar -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- 2) Luz del sol -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- 3) Incluimos tu modelo “two_floors_elevator” -->
+    <include>
+      <!-- Asegúrate de que “two_floors_elevator” sea el nombre exacto de la carpeta -->
+      <uri>model://two_floors_elevator</uri>
+      <!-- Pose: x y z  roll pitch yaw -->
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <!-- 4) (Opcional) Ajustes de física, gravedad, etc. -->
+    <physics type="ode">
+      <gravity>0 0 -9.81</gravity>
+    </physics>
+
+  </world>
+</sdf>

@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<!--robot
+  name="Seguidor_linea_robot"-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mobile_robot">
+  
+  <!--link name="odom_link"/>
+  <joint name="odom_joint" type="fixed">
+    <parent link="odom_link" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint-->
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.010085 -7.8763E-06 -0.0066048"
+        rpy="0 0 0" />
+      <mass value="0.12" />
+      <inertia
+        ixx="0.0001"
+        ixy="0"
+        ixz="0"
+        iyy="0.0003"
+        iyz="0"
+        izz="0.0002" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modelo_robot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.3" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modelo_robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--link name="world"/>
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    package://modelo_robot/meshes/base_link.stl
+  </joint-->
+
+  <gazebo reference="base_link">
+    <mu1>200</mu1>
+    <mu2>200</mu2>
+    <kp>1000000</kp>
+    <kd>1</kd>
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <link
+    name="Rueda_izquierda_link">
+    <inertial>
+      <origin
+        xyz="8.9146E-10 -3.2512E-08 -0.011873"
+        rpy="0 0 0" />
+      <mass value="0.1403" />
+      <inertia
+        ixx="0.00002"
+        ixy="0"
+        ixz="0"
+        iyy="0.00002"
+        iyz="0"
+        izz="0.0001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modelo_robot/meshes/Rueda_izquierda_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modelo_robot/meshes/Rueda_izquierda_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rueda_izquierda_joint"
+    type="continuous">
+    <origin
+      xyz="-0.033259 0.08025 -0.01375"
+      rpy="-1.5708 0.042481 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rueda_izquierda_link" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+ <gazebo reference="Rueda_izquierda_link">
+    <mu1>200</mu1>
+    <mu2>200</mu2>
+    <kp>1000000</kp>
+    <kd>1</kd>
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+
+  <link
+    name="Rueda_derecha_link">
+    <inertial>
+      <origin
+        xyz="-8.9146E-10 -3.2512E-08 0.011873"
+        rpy="0 0 0" />
+      <mass value="0.1403" />
+      <inertia
+        ixx="0.00002"
+        ixy="0"
+        ixz="0"
+        iyy="0.00002"
+        iyz="0"
+        izz="0.0001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modelo_robot/meshes/Rueda_derecha_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modelo_robot/meshes/Rueda_derecha_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="Rueda_derecha_link">
+    <mu1>200</mu1>
+    <mu2>200</mu2>
+    <kp>1000000</kp>
+    <kd>1</kd>
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <joint
+    name="Rueda_derecha_joint"
+    type="continuous">
+    <origin
+      xyz="-0.033259 -0.08025 -0.01375"
+      rpy="1.5708 0.042481 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rueda_derecha_link" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <link
+    name="Base_castor_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.00004"
+        ixy="0"
+        ixz="0"
+        iyy="0.00004"
+        iyz="0"
+        izz="0.00001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modelo_robot/meshes/Base_castor_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modelo_robot/meshes/Base_castor_link.STL" />
+      </geometry>
+    </collision>
+    
+  </link>
+
+  <gazebo reference="Base_castor_link">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000</kp>
+    <kd>1</kd>
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <joint
+    name="Base_castor_joint"
+    type="continuous">
+    <origin
+      xyz="0.072581 0 -0.0025"
+      rpy="-3.1408 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Base_castor_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Rueda_castor_link">
+    <inertial>
+      <origin
+        xyz="6.93889390390723E-18 -2.62037475051713E-11 -2.77710070911708E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.0828739992319076" />
+      <inertia
+        ixx="0.0004"
+        ixy="0"
+        ixz="0"
+        iyy="0.0004"
+        iyz="0"
+        izz="0.00001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modelo_robot/meshes/Rueda_castor_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modelo_robot/meshes/Rueda_castor_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="Rueda_castor_link">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000</kp>
+    <kd>1</kd>
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <joint
+    name="Rueda_castor_joint"
+    type="continuous">
+    <origin
+      xyz="0.015014 -0.00012272 0.02296"
+      rpy="0 -1.57 1.5708" />
+    <parent
+      link="Base_castor_link" />
+    <child
+      link="Rueda_castor_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link name="Lidar_link">
+  <inertial>
+    <origin xyz="0 0 0.0" rpy="0 0 0.0"/>
+    <mass value="0.01"/>
+    <inertia ixx="0.0001"  ixy="0"  ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+       <cylinder radius="0.01" length="0.05"/>
+    </geometry>
+    <material
+      name="">
+      <color
+        rgba="1 1 0 0.5" />
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0.0" rpy="0 0 0"/>
+    <geometry>
+       <cylinder radius="0.01" length="0.05"/>
+    </geometry>
+    <material
+      name="">
+      <color
+        rgba="1 1 1 0.5" />
+    </material>
+  </collision>
+  </link>
+
+
+  <joint
+    name="Lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.0 0 0.02"
+      rpy="0 -0.087 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Lidar_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+  <link name="imu_link"/>
+  <joint
+    name="imu_joint"
+    type="fixed">
+    <origin
+      xyz="0.0 0 0.0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+
+  <!--LIDAR CONFIGURATION-->
+
+  <gazebo reference="Lidar_link">
+    <sensor name="lidar" type="ray">
+      <always_on>true</always_on>
+      <visualize>true</visualize>
+      <update_rate>20</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>60</samples>
+            <resolution>1.000000</resolution>
+            <min_angle>-1.57079</min_angle>
+            <max_angle>1.57079</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.07</min>
+          <max>5.0</max>
+          <resolution>0.015</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <remapping>~/out:=laser_scan</remapping>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>Lidar_link</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="Lidar_link">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000</kp>
+    <kd>1</kd>
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+    <!--IMU sensor-->
+
+  <gazebo reference="imu_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>imu_data</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu_data</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.005</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <initialOrientationAsReference>true</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+  <!-- ─────────────── depth camera (RealSense-like) ─────────────── -->
+<link name="camera_link">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass  value="0.05"/>                       <!-- muy ligera -->
+    <inertia ixx="1e-5" iyy="1e-5" izz="1e-5"
+             ixy="0"   ixz="0"   iyz="0"/>
+  </inertial>
+
+  <!-- Un cubo pequeño como carcasa -->
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry><box size="0.04 0.02 0.02"/></geometry>
+    <material name=""><color rgba="0.2 0.2 0.2 1"/></material>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry><box size="0.04 0.02 0.02"/></geometry>
+  </collision>
+</link>
+
+<joint name="camera_joint" type="fixed">
+  <!-- coloca la cámara 8 cm sobre el chasis y
+       3 cm adelantada; orientada hacia delante       -->
+  <origin xyz="0.03 0 0.08" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child  link="camera_link"/>
+</joint>
+<!-- ─────────────── cámara RGB ─────────────── -->
+<gazebo reference="camera_link">
+  <sensor name="rgb_camera" type="camera">
+    <!-- Pose relativa al link (0 = mismo origen) -->
+    <pose>0 0 0 0 0 0</pose>
+
+    <!-- Ajustes generales -->
+    <update_rate>30</update_rate>
+    <always_on>true</always_on>
+    <visualize>false</visualize>      <!-- el frustum ya lo ves con la depth -->
+
+    <camera>
+      <horizontal_fov>1.047</horizontal_fov>   <!-- ≈ 60 ° -->
+      <image>
+        <width>320</width>
+        <height>240</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.05</near>
+        <far>10.0</far>
+      </clip>
+    </camera>
+
+    <!-- Plugin ROS 2 que publica imagen, info y tf -->
+    <plugin name="rgb_camera_plugin" filename="libgazebo_ros_camera.so">
+      <ros>                           <!-- remapeo opcional -->
+        <remapping>~/image_raw:=image_raw</remapping>
+        <remapping>~/camera_info:=camera_info</remapping>
+      </ros>
+
+      <frame_name>camera_optical_link</frame_name>
+      <frame_name>camera_link</frame_name>
+      <update_rate>15.0</update_rate>
+    </plugin>
+  </sensor>
+</gazebo>
+<!-- ───────── marco óptico REP-103 ───────── -->
+<link name="camera_optical_link"/>
+
+<joint name="camera_optical_joint" type="fixed">
+  <!-- rotar -90° sobre X y +90° sobre Z -->
+  <origin xyz="0 0 0" rpy="-1.570796 0 -1.570796"/>
+  <parent link="camera_link"/>
+  <child  link="camera_optical_link"/>
+</joint>
+
+
+<!-- ─────────────── cámara de profundidad ─────────────── -->
+<gazebo reference="camera_link">
+  <sensor name="depth_camera" type="depth">
+    <pose>0 0 0 0 0 0</pose>
+    <update_rate>30</update_rate>
+    <always_on>true</always_on>
+    <visualize>true</visualize>       <!-- frustum azul -->
+
+    <camera>
+      <horizontal_fov>1.047</horizontal_fov>
+      <image>
+        <width>640</width>
+        <height>480</height>
+        <format>R8G8B8</format>       <!-- ¡no importa! Gazebo lo necesita -->
+      </image>
+      <clip>
+        <near>0.05</near>
+        <far>5.0</far>
+      </clip>
+    </camera>
+
+    <plugin name="depth_camera_plugin" filename="libgazebo_ros_camera.so">
+      <ros>
+        <remapping>~/image_raw:=image_raw</remapping>            <!-- frame gris -->
+        <remapping>~/depth/image_raw:=depth/image_raw</remapping><!-- 32FC1 -->
+        <remapping>~/camera_info:=camera_info</remapping>
+      </ros>
+
+      <frame_name>camera_optical_link</frame_name>
+      <frame_name>camera_link</frame_name>
+      <update_rate>30.0</update_rate>
+    </plugin>
+  </sensor>
+</gazebo>
+
+
+  <gazebo>
+    <plugin name="two_wheeled_robot_diff_drive" filename="libgazebo_ros_diff_drive.so">
+ 
+      <update_rate>100</update_rate>
+      
+      <!-- wheels -->
+      <left_joint>Rueda_izquierda_joint</left_joint>
+      <right_joint>Rueda_derecha_joint</right_joint>
+ 
+      <!-- kinematics -->
+      <wheel_separation>0.15</wheel_separation>
+      <wheel_diameter>0.06</wheel_diameter>
+ 
+      <!-- limits -->
+      <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_acceleration>20.0</max_wheel_acceleration>
+ 
+      <!-- Receive velocity commands on this ROS topic -->
+      <command_topic>cmd_vel</command_topic>
+ 
+      <!-- output -->
+      <!-- When false, publish no wheel odometry data to a ROS topic -->
+      <publish_odom>true</publish_odom>
+ 
+      <!-- When true, publish coordinate transform from odom to base_footprint -->
+      <!-- I usually use the robot_localization package to publish this transform -->  
+      <publish_odom_tf>true</publish_odom_tf>
+     
+      <!-- When true, publish coordinate transform from base_link to the wheels -->
+      <!-- The robot_state_publisher package is often used to publish this transform -->  
+      <publish_wheel_tf>true</publish_wheel_tf>
+ 
+      <odometry_topic>odom</odometry_topic>
+      <odometry_frame>odom_link</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+ 
+      <odometry_source>1</odometry_source>
+      <ros>
+        <remapping>odom:=wheel/odometry</remapping>
+      </ros>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="gazebo_ros_joint_state_publisher"
+        filename="libgazebo_ros_joint_state_publisher.so">
+        <update_rate>100</update_rate>
+        <joint_name>Base_castor_joint</joint_name>
+        <joint_name>Rueda_castor_joint</joint_name>
+    </plugin>
+  </gazebo>
+
+</robot>
+
