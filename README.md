@@ -4,7 +4,8 @@ This repository contains a **ROS 2 Humble workspace** with a **differential driv
 
 The main goal is to **enable the robot to understand its environment**, build a **map with SLAM Toolbox**, **store it for future sessions**, and later **localize itself with AMCL** within that map. Once localized, the robot can **plan trajectories with Nav2** and **avoid obstacles in real time**, combining global path planning with local controllers.
 
-![Uploading image.png…]()
+<img width="894" height="1006" alt="image" src="https://github.com/user-attachments/assets/95975624-84f1-42ea-b60f-20f38a291567" />
+
 
 
 This project integrates:
